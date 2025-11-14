@@ -1,0 +1,138 @@
+.namespace-list {
+  width: 250px;
+  background: #252526;
+  border-right: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.namespace-list-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.namespace-controls {
+  padding: 8px 16px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  gap: 8px;
+}
+
+.namespace-control-button {
+  flex: 1;
+  padding: 6px 12px;
+  background: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.namespace-control-button:hover {
+  background: #353535;
+  border-color: #555;
+}
+
+.namespace-list-header h2 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.namespace-count {
+  font-size: 9px;
+  color: #888;
+  background: #2d2d2d;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.namespace-list-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.empty-state {
+  padding: 16px;
+  text-align: center;
+  color: #888;
+  font-size: 10px;
+}
+
+.namespace-item {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.namespace-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  padding: 8px 12px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  text-align: left;
+}
+
+.namespace-only-button {
+  padding: 6px 10px;
+  background: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #888;
+  font-size: 9px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.namespace-only-button:hover {
+  background: #007acc;
+  border-color: #007acc;
+  color: #fff;
+}
+
+.namespace-toggle-button:hover {
+  background: #2d2d2d;
+  border-color: #444;
+}
+
+.namespace-toggle-button.active {
+  background: #007acc;
+  border-color: #007acc;
+  color: #fff;
+}
+
+.namespace-toggle-button.active .namespace-name {
+  color: #fff;
+  font-weight: 600;
+}
+
+.namespace-toggle-button.active .namespace-status {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.namespace-name {
+  flex: 1;
+  font-size: 10px;
+  color: #ccc;
+  font-weight: 500;
+}
+

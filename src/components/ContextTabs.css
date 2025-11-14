@@ -1,0 +1,104 @@
+.context-tabs {
+  background: #1e1e1e;
+  border-bottom: 1px solid #333;
+  padding: 12px 16px;
+}
+
+.context-tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.context-tabs-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.context-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.context-tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.2s;
+}
+
+.context-tab-button:hover {
+  background: #353535;
+  border-color: #555;
+}
+
+.context-tab.active .context-tab-button {
+  background: #007acc;
+  border-color: #007acc;
+  color: #fff;
+}
+
+.context-name {
+  font-weight: 500;
+}
+
+.current-badge {
+  font-size: 8px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.refresh-button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: #353535;
+  border-color: #555;
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-button:active:not(:disabled) {
+  transform: rotate(180deg);
+}
+
+.no-contexts-message {
+  padding: 8px 16px;
+  color: #888;
+  font-size: 11px;
+}
+
