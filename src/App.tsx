@@ -270,7 +270,7 @@ function App() {
       // 포트 중복 체크
       if (activeLocalPorts.has(localPort)) {
         alert(`포트 ${localPort}는 이미 사용 중입니다`)
-        return
+        throw new Error(`포트 ${localPort}는 이미 사용 중입니다`)
       }
 
       // 포트포워딩 시작
@@ -313,7 +313,12 @@ function App() {
         })
       } catch (error) {
         console.error('포트포워딩 시작 실패:', error)
-        alert(`포트포워딩 시작 실패: ${error instanceof Error ? error.message : String(error)}`)
+        const errorMessage = error instanceof Error ? error.message : String(error)
+        // 중복 포트 에러는 이미 alert를 표시했으므로 다시 표시하지 않음
+        if (!errorMessage.includes('이미 사용 중입니다')) {
+          alert(`포트포워딩 시작 실패: ${errorMessage}`)
+        }
+        throw error
       }
     } else {
       // 포트포워딩 중지

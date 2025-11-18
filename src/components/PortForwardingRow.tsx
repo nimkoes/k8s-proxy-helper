@@ -14,7 +14,7 @@ interface PortForwardingRowProps {
     remotePort: number,
     localPort: number,
     enabled: boolean
-  ) => void
+  ) => Promise<void>
 }
 
 export const PortForwardingRow: React.FC<PortForwardingRowProps> = ({
@@ -41,23 +41,29 @@ export const PortForwardingRow: React.FC<PortForwardingRowProps> = ({
     }
   }, [portForward, port.containerPort])
 
-  const handleToggle = (e: React.MouseEvent) => {
+  const handleToggle = async (e: React.MouseEvent) => {
     // input 필드 클릭 시에는 토글하지 않음
     if ((e.target as HTMLElement).tagName === 'INPUT') {
       return
     }
     
     const newEnabled = !isEnabled
+    const previousEnabled = isEnabled
     setIsEnabled(newEnabled)
     
     const localPortNum = parseInt(localPort, 10)
     if (isNaN(localPortNum) || localPortNum <= 0) {
       alert('유효한 로컬 포트 번호를 입력해주세요')
-      setIsEnabled(false)
+      setIsEnabled(previousEnabled)
       return
     }
 
-    onPortForwardChange(podName, port.containerPort, localPortNum, newEnabled)
+    try {
+      await onPortForwardChange(podName, port.containerPort, localPortNum, newEnabled)
+    } catch (error) {
+      // 포트포워딩 실패 시 상태 롤백
+      setIsEnabled(previousEnabled)
+    }
   }
 
   const handleLocalPortChange = (e: React.ChangeEvent<HTMLInputElement>) => {
